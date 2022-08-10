@@ -1,0 +1,9 @@
+import pymongo
+import urllib
+client = pymongo.MongoClient("mongodb+srv://ID:"+urllib.parse.quote('PASSWORD')+"@cluster0.be5tg.mongodb.net/DB_NAME?retryWrites=true&w=majority")
+my_db= client['TEST_DB_1']
+mytable  =  my_db['contect_people'] # also known as collection
+print(*list(mytable.find({})),sep='\n')
+
+### push new pdf to the media and update config for skills 
+### heroku bhavesh.personal.india@gmail.com

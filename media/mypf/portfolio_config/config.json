@@ -1,0 +1,24 @@
+{
+    "My_projects" : [
+        {
+            "p_title":"Project 1",
+            "p_desc":"Description for the Project",
+            "p_link":"#",
+            "p_link_text": "Github or Project Link"
+        }, 
+        {
+            "p_title":"Project 2",
+            "p_desc":"Description for the Project",
+            "p_link":"#",
+            "p_link_text": "Github or Project Link"
+        }, 
+        {
+            "p_title":"Project 3",
+            "p_desc":"Description for the Project",
+            "p_link":"#",
+            "p_link_text": "Github or Project Link"
+        }
+    ],
+    "My_skills_L0" : "Python-Developer|Backend|Automation-Testing|Data-Engineering",
+    "My_skills_L1" : "I am also good at golang, embedded C/C++, web development, data engineering, Automotive (AUTOSAR)."
+}

@@ -1,0 +1,55 @@
+{% extends 'mypf/base.html' %}
+
+{% block content %}
+    <div class="container">
+
+        <div class="col-8 row justify-content-center margin text-success">
+            <h2> Find Your Love <br> <span class="text-white">Give it a try... &#10084; </span></h2>
+        </div>
+        <div class="row justify-content-center margin">
+            <div class="col-7">
+                <!--Custom Api form-->
+                <form method="GET" class="form-inline">
+                    {% csrf_token %}
+                    <label class="my-1 mr-2" for="fname">First Name</label>
+                    <input type="text" name="fname" class="form-control mb-2 mr-sm-2" id="fname" placeholder="Jane" required>
+
+                    <label class="my-1 mr-2" for="Sname">Second Name</label>
+                    <input type="text" name="Sname" class="form-control mb-2 mr-sm-2" id="Sname" placeholder="Deo" required>
+                    
+                    <button type="button" id="Lovegen" class="btn btn-primary mb-2 btn-sub">Find Love</button>
+                
+                </form>
+            </div>
+        </div>
+        <!-- <div class="row justify-content-center margin">
+            <div class="col-8">
+                <img class="img-fluid" name="srcapi" id="srcapi" src="https://belikebill.ga/billgen-API.php?default=1&name=Jane Doe&sex=f">
+
+            </div>
+        </div> -->
+        <div class="row justify-content-center margin">
+            <div class="col-8">
+                <div class="progress">
+                    <div class="progress-bar progress-bar-danger" role="progressbar" aria-valuenow="50" aria-valuemin="0"
+                        aria-valuemax="100" style="width:0%" id = 'percentage_bar'>
+                        <span id = 'percentage'>0%</span>
+                    </div>
+                </div>
+                <div>
+                    <h3 class='text-white'><span id = "msg">Lets start the test...!</span></h3>
+                </div>
+            </div>
+        </div>
+        <div class="row justify-content-center margin">
+            <div class="pflink">
+                <a href="{% url 'home' %}">Goto Home</a>
+            </div>
+        </div>
+        <div class="row justify-content-center margin">
+            <div class="pflink">
+                <a href="{% url 'portfolio' %}">Check My Portfolio</a>
+            </div>
+        </div>
+    </div>
+{% endblock %}

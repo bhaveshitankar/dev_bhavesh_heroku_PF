@@ -1,0 +1,113 @@
+{% extends 'mypf/base.html' %}
+<!--Extended base html file-->
+
+{% block content %}
+    <!--Header-->
+	<header class="masthead text-white text-center">
+	  <div class="container">
+		<img class="img-fluid mb-5 d-block mx-auto" src="static/mypf/img/profile.png" alt="">
+		<h1 class="text-uppercase mb-0">Bhavesh Itankar</h1>
+		<hr class="star-light">
+		<h2 class="font-weight-heavy mb-0"><i>{{conf_data.My_skills_L0}}</i></h2>
+	  </div>
+	</header>
+
+	<!--PORTFOLIO-->
+	<section class="portfolio margin" id="portfolio">
+        <div class="container">
+            <h2 class="text-center text-uppercase text-white mb-0">Portfolio</h2>
+            <hr class="star-light mb-5 text-white">
+			  {% if conf_data %}
+				{% for proj_obj in conf_data.My_projects %} 
+					{% if forloop.first or forloop.counter0|divisibleby:"2" %}
+				<div class="row">
+					{% endif %}
+					{% if forloop.last and not forloop.counter|divisibleby:"2" %}
+					<div class="col-sm-12" style="text-align:center;">
+					{% else %}
+					<div class="col-sm-6">
+					{% endif %}
+						<div class="card">
+							<div class="card-body">
+								<h5 class="card-title">{{proj_obj.p_title}}</h5>
+								<p class="card-text">{{proj_obj.p_desc}}</p>
+								<a href="{{proj_obj.p_link}}" class="btn btn-primary">{{proj_obj.p_link_text}}</a>
+							</div>
+						</div>
+					</div>
+				{% if forloop.last or forloop.counter|divisibleby:"2" %}
+				</div>
+				{% endif %}
+				{% if forloop.last or forloop.counter|divisibleby:"2" %}
+					<div class="margin"></div>
+				{% endif %}
+				{% endfor%}
+			  {% endif %}
+			  <div class="margin"></div>
+			  {% comment %} 
+			  <div class="col-sm-6">
+				<div class="card">
+				  <div class="card-body">
+					<h5 class="card-title">Project 1</h5>
+					<p class="card-text">Description for the Project</p>
+					<a href="#" class="btn btn-primary">Github or Project Link</a>
+				  </div>
+				</div>
+			  </div>
+			  <div class="col-sm-6">
+				<div class="card">
+				  <div class="card-body">
+					<h5 class="card-title">Project 2</h5>
+					<p class="card-text">Description for the Project</p>
+					<a href="#" class="btn btn-primary">Github or Project Link</a>
+				  </div>
+				</div>
+			  </div>
+			</div>
+			<div class="margin"></div>
+			<div class="row">
+			  <div class="col-sm-6">
+				<div class="card">
+				  <div class="card-body">
+					<h5 class="card-title">Project 3</h5>
+					<p class="card-text">Description for the Project</p>
+					<a href="#" class="btn btn-primary">Github or Project Link</a>
+				  </div>
+				</div>
+			  </div>
+			  <div class="col-sm-6">
+				<div class="card">
+				  <div class="card-body">
+					<h5 class="card-title">Project 4</h5>
+					<p class="card-text">Description for the Project</p>
+					<a href="#" class="btn btn-primary">Github or Project Link</a>
+				  </div>
+				</div>
+			  </div>
+			</div> {% endcomment %}
+		</div>
+	</section>
+
+	<!--ABOUT-->
+	<section class="text-white mb-0 margin" id="about">
+	  <div class="container">
+		<h2 class="text-center text-uppercase text-white">About</h2>
+		<hr class="star-light mb-5">
+		<div class="row">
+		  <div class="col-lg-4 ml-auto about-1">
+			<p class="lead">Hi I am Bhavesh who, loves to create new things...!</p>
+		  </div>
+		  <div class="col-lg-4 mr-auto about-2">
+			<p class="lead">{{conf_data.My_skills_L1}}</p>
+		  </div>
+		</div>
+		<div class="text-center mt-4">
+		  <a class="btn btn-xl btn-cv" href="{{resume_path}}" download="Bhavesh_CV.pdf">
+			<i class="fas fa-download mr-2"></i>
+			Download CV
+		  </a>
+		</div>
+	  </div>
+	</section>
+
+{% endblock %}
